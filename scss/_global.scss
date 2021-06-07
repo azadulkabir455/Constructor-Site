@@ -1,0 +1,66 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+$primaryColor: #FABC3D;
+$secondaryColor: #2B2D37;
+$textColor:#595A62;
+$whiteColor: #fff;
+$transparentColor: rgba(0, 0, 0, 0);
+$fontFamily: rajdhani, sans-serif;
+
+::selection {
+    background-color: $primaryColor;
+    color: $whiteColor;
+}
+.container {
+    width: 80%;
+    margin:0 auto;
+    @media only screen and (max-width: 1366px) {
+        width: 100%;
+    }
+
+}
+@font-face {
+    font-family: rajdhani;
+    font-weight: 400;
+    src: url(./fonts/rajdhani_regular.ttf);
+}
+@font-face {
+    font-family: rajdhani;
+    font-weight: 500;
+    src: url(./fonts/rajdhani_medium.ttf);
+}
+@font-face {
+    font-family: rajdhani;
+    font-weight: 700;
+    src: url(./fonts/rajdhani_semibold.ttf);
+}
+
+
+// Responsive layout
+[class *= col-] {
+    width: 100%;
+    float:left;
+}
+.row::after {
+    content:'';
+    display: table;
+    clear:both;
+}
+@media only screen and (min-width: 1024px) {
+    @for $i from 1 through 12 {
+        .col-#{$i}{
+            width: $i * 8.33%;
+        }
+    }
+}
+@media only screen and (min-width: 767pxpx) {
+    @for $i from 1 through 12 {
+        .col-m-#{$i}{
+            width: $i * 8.33%;
+        }
+    }
+}
