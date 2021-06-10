@@ -1,1 +1,15 @@
 @import 'global';
+
+
+// Start Home page
+.about {
+    display: flex;
+    // align-items: flex-end;
+    img {
+        width:520px;
+        height: 495px;
+    }
+    .aboutContentArea {
+        align-self: flex-end;
+    }
+}

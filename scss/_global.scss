@@ -3,6 +3,15 @@
     margin:0;
     box-sizing:border-box;
 }
+body {
+    height:100%;
+    font-family: rajdhani;
+    img {
+        width:100%
+    }
+}
+
+// Global variable
 
 $primaryColor: #FABC3D;
 $secondaryColor: #2B2D37;
@@ -18,7 +27,7 @@ $fontFamily: rajdhani, sans-serif;
 .container {
     width: 80%;
     margin:0 auto;
-    @media only screen and (max-width: 1366px) {
+    @media only screen and (max-width: 1200px) {
         width: 100%;
     }
 
@@ -39,11 +48,72 @@ $fontFamily: rajdhani, sans-serif;
     src: url(./fonts/rajdhani_semibold.ttf);
 }
 
+// Global property
+@mixin font($family,$size,$weight,$lineheight,$align,$color){
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    line-height:$lineheight;
+    text-align: $align;
+    color: $color;
+    @content;
+}
+
+@mixin button($backgroundColor, $padding, $border,$cursor,$transition){
+    background-color: $backgroundColor;
+    padding: $padding;
+    cursor:$cursor;
+    border:$border;
+    transition: $transition;
+    @include font($fontFamily,20px,700,30px,center,$secondaryColor);
+    &:hover {
+        @content;
+    }
+}
+
+// Global Class
+.primaryButton {
+    @include button($primaryColor, 12px 20px,none,pointer,.4s ease-out){
+        background-color: $secondaryColor;
+        color:$whiteColor;
+    };
+}
+.preheader {
+    @include font($fontFamily,36px,400,36px,left,$secondaryColor);
+    @media only screen and (max-width: 767px) {
+        font-size:25px;
+    }
+}
+.sectionTitle {
+    @include font($fontFamily,42px,600,46px,left,$secondaryColor);
+    @media only screen and (max-width: 767px) {
+        font-size:30px;
+    }
+}
+.innerTitle {
+    @include font($fontFamily,28px,700,34px,left,$secondaryColor);
+    @media only screen and (max-width: 767px) {
+        font-size:20px;
+        line-height: 25px;
+    }
+}
+.bodyText {
+    @include font($fontFamily,20px,500,30px,left,$secondaryColor);
+}
 
 // Responsive layout
 [class *= col-] {
     width: 100%;
     float:left;
+}
+.row {
+    padding: 100px 0;
+    @media only screen and (max-width:1024px) {
+        padding: 80px 0;
+    }
+    @media only screen and (max-width: 767px) {
+        padding: 60px 0;
+    }
 }
 .row::after {
     content:'';
