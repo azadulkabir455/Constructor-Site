@@ -1,15 +1,160 @@
 @import 'global';
 
 
-// Start Home page
+/*<< Start Home page >>*/
+
+
+// Start Header
+
+.slideShowContainer {
+    width: 100%;
+    position: relative;
+    .mySlides {
+        display:none;
+        .numberCount {
+            position: absolute;
+            left:0;
+            bottom:0;
+            padding:10px;
+            color: #fff;
+            font-size: 18px;
+        }
+        .textContain {
+            position: absolute;
+            width: 50%;
+            top: 25%;
+            left: 20%;
+
+             h3 {
+                 @include font($fontFamily, 45px, 600, 59px,left, $whiteColor);
+             }
+             h1 {
+                @include font($fontFamily, 80px, 600, 80px,left, $whiteColor);
+             }
+        }
+
+    }
+    @keyframes fade {
+      from {
+          opacity: 0;
+      } 
+      to {
+          opacity: 1;
+      } 
+    }
+    .fade {
+        animation: fade .4s linear;
+    }
+    .prev, .next {
+        position: absolute;
+        right:20px;
+        bottom:-15px;
+        padding: 15px 20px;
+        background-color: $primaryColor;
+        color:$whiteColor;
+        font-size: 18px;
+        cursor:pointer;
+        transition: all .2s linear;
+        &:hover {
+            background-color: $secondaryColor;
+        }
+    }
+    .prev {
+        right: 80px;
+    }
+}
+.dotContainer {
+    text-align:center;
+    .dot {
+        width: 15px;
+        height: 15px;
+        border: 2px solid $primaryColor;
+        background-color: $transparentColor;
+        display:inline-block;
+        user-select: none;
+        transition: all .2s linear;
+        &:hover {
+            background-color: $secondaryColor;
+        }
+    }
+    .active {
+        background-color: $secondaryColor;
+    }
+}
+
+// End Header
+
+// Start Service section
+
 .about {
     display: flex;
-    // align-items: flex-end;
     img {
         width:520px;
         height: 495px;
     }
     .aboutContentArea {
         align-self: flex-end;
+        padding: 0 0 80px 11px;
+        .sectionTitle {
+            margin-bottom: 25px;
+        }
+        .bodyText {
+            margin-bottom: 40px;
+        }
     }
 }
+
+// End Service Section
+
+//Start Features Section
+
+#features {
+    overflow: hidden;
+    position: relative;
+    .feature {
+        margin-bottom: 35px;
+        display:flex;
+        .imageSection img {
+            width: 53px;
+            height: 53px;   
+        }
+        .contentSection {
+            margin-left:20px;
+            .innerTitle {
+                margin-bottom: 20px;
+            }
+            .bodyText {
+                margin-right: 55px;
+            }
+        }
+    }
+    .rightImages {
+        display:flex;
+        justify-content: flex-start;
+        .firstImage, .secondImage {
+            width:338px;
+            height:367px;
+            overflow: hidden;
+            box-shadow: 0px 0 25px 5px rgba(10, 10, 10, 0.250);
+            img {
+                width:338px;
+                height:367px;
+                object-fit: cover;
+                object-position: -15px center;
+                transition: all .3s linear;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .firstImage {
+            z-index:1;
+        }
+        .secondImage {
+            margin-top: 180px;
+            margin-left: -90px;
+        }
+    }
+}
+
+//Start End Section
